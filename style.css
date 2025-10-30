@@ -1,0 +1,261 @@
+/* Sky Artwork - Clouds and Sun */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Beautiful gradient sky */
+.sky {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(
+        to bottom,
+        #87CEEB 0%,
+        #98D8F4 30%,
+        #B4E5F9 60%,
+        #FFE5B4 85%,
+        #FFD4A3 100%
+    );
+    overflow: hidden;
+}
+
+/* Sun with glowing effect */
+.sun {
+    position: absolute;
+    top: 15%;
+    right: 20%;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle at 35% 35%, 
+        #FFF9E6 0%,
+        #FFE66D 30%,
+        #FFB347 70%,
+        #FF9A3C 100%
+    );
+    border-radius: 50%;
+    box-shadow: 
+        0 0 60px rgba(255, 230, 109, 0.8),
+        0 0 100px rgba(255, 179, 71, 0.6),
+        0 0 140px rgba(255, 154, 60, 0.4);
+    animation: sun-glow 4s ease-in-out infinite;
+    z-index: 1;
+}
+
+/* Animated sun rays */
+.sun-rays {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    box-shadow: 
+        0 0 80px rgba(255, 230, 109, 0.6),
+        0 0 120px rgba(255, 179, 71, 0.4);
+    animation: rays-pulse 3s ease-in-out infinite;
+}
+
+@keyframes sun-glow {
+    0%, 100% { 
+        transform: scale(1);
+        box-shadow: 
+            0 0 60px rgba(255, 230, 109, 0.8),
+            0 0 100px rgba(255, 179, 71, 0.6),
+            0 0 140px rgba(255, 154, 60, 0.4);
+    }
+    50% { 
+        transform: scale(1.05);
+        box-shadow: 
+            0 0 80px rgba(255, 230, 109, 0.9),
+            0 0 120px rgba(255, 179, 71, 0.7),
+            0 0 160px rgba(255, 154, 60, 0.5);
+    }
+}
+
+@keyframes rays-pulse {
+    0%, 100% { 
+        transform: scale(1);
+        opacity: 0.6;
+    }
+    50% { 
+        transform: scale(1.3);
+        opacity: 0.3;
+    }
+}
+
+.sun:hover {
+    animation: sun-glow 2s ease-in-out infinite;
+    cursor: pointer;
+}
+
+/* Fluffy clouds */
+.cloud {
+    position: absolute;
+    background: white;
+    border-radius: 100px;
+    box-shadow: 
+        0 8px 20px rgba(0, 0, 0, 0.1),
+        inset -10px -10px 20px rgba(0, 0, 0, 0.02);
+    animation: float-cloud 20s ease-in-out infinite;
+    z-index: 2;
+}
+
+/* Cloud puffs for fluffy effect */
+.cloud-puff {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.container1 {
+    width: 280px;
+    height: 100px;
+    top: 20%;
+    left: 10%;
+    animation-duration: 25s;
+}
+
+.container1 .cloud-puff:nth-child(1) {
+    width: 120px;
+    height: 120px;
+    top: -40px;
+    left: 20px;
+}
+
+.container1 .cloud-puff:nth-child(2) {
+    width: 100px;
+    height: 100px;
+    top: -30px;
+    left: 100px;
+}
+
+.container1 .cloud-puff:nth-child(3) {
+    width: 90px;
+    height: 90px;
+    top: -20px;
+    right: 20px;
+}
+
+.container2 {
+    width: 350px;
+    height: 120px;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-duration: 30s;
+    animation-delay: -5s;
+}
+
+.container2 .cloud-puff:nth-child(1) {
+    width: 140px;
+    height: 140px;
+    top: -50px;
+    left: 30px;
+}
+
+.container2 .cloud-puff:nth-child(2) {
+    width: 130px;
+    height: 130px;
+    top: -45px;
+    left: 120px;
+}
+
+.container2 .cloud-puff:nth-child(3) {
+    width: 110px;
+    height: 110px;
+    top: -35px;
+    right: 30px;
+}
+
+.container3 {
+    width: 300px;
+    height: 110px;
+    top: 35%;
+    right: 8%;
+    animation-duration: 28s;
+    animation-delay: -10s;
+}
+
+.container3 .cloud-puff:nth-child(1) {
+    width: 130px;
+    height: 130px;
+    top: -45px;
+    left: 25px;
+}
+
+.container3 .cloud-puff:nth-child(2) {
+    width: 110px;
+    height: 110px;
+    top: -35px;
+    left: 110px;
+}
+
+.container3 .cloud-puff:nth-child(3) {
+    width: 95px;
+    height: 95px;
+    top: -25px;
+    right: 25px;
+}
+
+@keyframes float-cloud {
+    0%, 100% { 
+        transform: translateY(0px) translateX(0px);
+    }
+    25% { 
+        transform: translateY(-20px) translateX(15px);
+    }
+    50% { 
+        transform: translateY(-10px) translateX(-10px);
+    }
+    75% { 
+        transform: translateY(-25px) translateX(5px);
+    }
+}
+
+/* Cloud hover effects */
+.cloud:hover {
+    animation-duration: 15s;
+    transform: scale(1.1);
+    transition: transform 0.5s ease;
+    cursor: pointer;
+    box-shadow: 
+        0 12px 30px rgba(0, 0, 0, 0.15),
+        inset -10px -10px 20px rgba(0, 0, 0, 0.03);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .sun {
+        width: 100px;
+        height: 100px;
+        top: 10%;
+        right: 10%;
+    }
+    
+    .container1, .container2, .container3 {
+        transform: scale(0.7);
+    }
+    
+    .container2 {
+        left: 30%;
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .cloud,
+    .sun,
+    .sun-rays {
+        animation: none !important;
+    }
+}
